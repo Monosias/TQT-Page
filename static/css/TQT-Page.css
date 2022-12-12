@@ -1,0 +1,273 @@
+/*Nền và nút chuyển*/
+:root {
+    --g1: rgb(143, 103, 238);
+    --g2: rgb(92, 170, 221);
+    --g3: rgb(89, 236, 187);
+}
+
+main {
+    background-image: url("/TQT-Page_Files/Front_01.jpg");
+    background-size: cover;
+    background-position: center 0%;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    z-index: 2;
+    transition: transform 600ms;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  background-color: white;
+  font-family: "Rubik", sans-serif;
+}
+
+nav {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#nav-toggle {
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    z-index: 3;
+    left: 50%;
+    bottom: 3rem;
+    transform: translateX(-50%);
+    background-color: rgb(127, 239, 247);
+    border: none;
+    border-radius: 5rem;
+    outline: none;
+    box-shadow: 0rem 0rem 4rem rgba(0 0 0 / 35%);
+    cursor: pointer;
+    transition: transform, background-color;
+    transition-timing-function: ease;
+    transition-duration: 400ms;
+    opacity: 0.1;
+    z-index: 4;
+}
+
+#nav-toggle:hover {
+    transform: translateX(-50%) scale(1.04);
+    background-color: rgb(89, 236, 187);
+    opacity:1;
+}
+
+#nav-toggle:active {
+    transform: translateX(-50%) scale(0.96);
+}
+
+body[data-nav="true"] > main {
+  transform: translateY(-110%);
+}
+
+body[data-nav="true"] > nav > #nav-links {
+  transform: translateY(0%) scale(1);
+}
+
+#nav-links > .nav-link {
+  text-decoration: none;
+}
+
+#nav-links > .nav-link > .nav-link-label {
+  color: white;
+  font-size: 1.25rem;
+  margin: 0rem;
+  text-transform: uppercase;
+}
+
+#nav-links > .nav-link > .nav-link-image {
+  width: max(20vw, 400px);
+  aspect-ratio: 1.8 / 1;
+  border-radius: 0.5rem;
+  margin-top: 0.75rem;
+  object-fit: cover;
+}
+
+body[data-nav="true"] > #nav-toggle {
+  background-color: rgb(248, 89, 89);
+}
+
+body:not([data-nav="true"]) > #nav-toggle:hover > .open {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#nav-toggle > i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  color: rgb(246, 231, 224);
+  font-size: 1.75rem;
+  opacity: 0;
+  transition: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 400ms;
+}
+
+body[data-nav="true"] > #nav-toggle > .close {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/*Chia block nội dung*/
+#container {
+    height: 100%; 
+    width:100%;
+    font-size: 0;
+    display: flex;
+  }
+
+#container > div {
+    flex: 1;
+}
+
+#left, #middle, #right {display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size: 12px;}
+#left {height: 100%; width: 33%; background: rgb(78, 110, 106);}
+#middle {height: 100%; width: 33%; background: rgb(68, 61, 95);}
+#right {height: 100%; width: 33%; background: rgb(90, 42, 42);}
+
+.card {
+    aspect-ratio: 1 / 1.6;
+    border: 0.5vmin solid var(--border);
+    cursor: pointer;
+    position: relative;
+    width: 56vmin;
+}
+.card:hover:before {
+    background-position: 100% 100%;
+    transform: scale(1.08, 1.03);
+}
+.card:hover > .card-content {
+    background-position: -10% 0%;
+}
+
+.card:hover > .card-content > .card-text > .card-text-word {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: opacity 0ms, transform 200ms cubic-bezier(.90, .06, .15, .90);
+}
+.card:hover > .card-content > .card-title {
+    color: rgb(61, 0, 0)
+}
+
+.card:hover > .card-content > .card-text > .card-text-word {
+    color:rgb(0, 0, 0)
+}
+
+.card:before {
+    background: linear-gradient(
+        130deg,
+        transparent 0% 33%,
+        var(--g1) 66%,
+        var(--g2) 83.5%,
+        var(--g3) 100%
+    );
+    background-position: 0% 0%;
+    background-size: 300% 300%;
+    content: "";
+    height: 100%;
+    left: 0px;
+    pointer-events:none;
+    position: absolute;
+    top: 0px;
+    transition: background-position 400ms ease;
+    width: 100%;
+    z-index: 1;
+}
+.card-content {
+    background: radial-gradient(
+        rgba(255,255,255,0.2) 8%,
+        transparent 8%
+    );
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+    height: calc(100% - 10vmin);
+    width: calc(100% - 10vmin);
+    padding: 5vmin;
+    position: relative;
+    transition: background-position 350ms ease;
+    z-index: 2;
+}
+.card-title,.card-text {
+    color: rgb(255, 255, 255);
+    font-family: "Rubik", sans-serif;
+    font-weight: 400;
+    margin: 0px;
+}
+.card-title {
+    font-size: 6vmin;
+    margin-bottom: 12%;
+}
+.card-text {
+    font-size: 3vmin;
+    margin-top: 2vmin
+}
+.card-text-word {
+    display: inline-block;
+    margin: 0vmin 0.3vmin;
+    opacity: 0;
+    position: relative;
+    transform: translateY(40%);
+    transition: none;
+}
+
+.sfx-y span {will-change:transform;transform:translate3d(0,110%,0)}
+.sfx-y,.sfx-y span {
+    display:block;
+    margin-top: 2vmin;
+    position: relative;
+}
+
+/* Fade in effect */
+.fade-in-image {
+    animation: fadeIn 2s;
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
+  }
+
+.fade-in-text {
+    font-family: Arial;
+    font-size: 60px;
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
