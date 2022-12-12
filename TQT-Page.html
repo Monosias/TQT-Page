@@ -1,0 +1,68 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/static/css/TQT-Page.css">
+
+    </head>
+    <body data-nav="false">
+        <main></main>
+        <nav>
+            <div id="left" class="card">
+                <div id="main-info" class="card-content">
+                    <h3 class="card-title sfx-y">
+                        ABOUT
+                    </h3>
+                    <h4 class="card-text sfx-y">
+                        <span class="card-text-word">TRAN QUANG THANH</span>
+                        <span class="card-text-word">+84 98 951 3836</span>
+                        <span class="card-text-word">thanhtran.mar6@gmail.com</span>
+                        <span class="card-text-word">
+                            <link rel="linkedinpage" href="linkedin.com/tran-quang-thanh">linkedin.com/tran-quang-thanh
+                        </span>
+                        <span class="card-text-word">Bac Tu Liem district, Hanoi, Vietnam</span>
+                    </h4>
+                </div>
+            </div>
+            <div id="middle" class="card">
+                <div id="work-exp" class="card-content">
+                    <h3 class="card-title sfx-y">
+                        WORK EXPERIENCE
+                    </h3>
+                    <h4 class="card-text sfx-y">
+                        <span class="card-text-word">Freelance Customer Support</span>
+                        <span class="card-text-word">AppenCo</span>
+                        <span class="card-text-word">2021-Now</span>
+                        <span class="card-text-word">Customer Support</span>
+                        <span class="card-text-word">Sunshine Homes Development JSC.</span>
+                        <span class="card-text-word">2020-2021</span>               
+                    </h4>
+                </div>
+            </div>
+            <div id="right" class="card">
+                <div id="edu-bg" class="card-content">
+                    <h3 class="card-title sfx-y">
+                        ACTIVITIES
+                    </h3>
+                    <h4 class="card-text sfx-y">
+                        <span class="card-text-word">* TOEIC 930</span>
+                        <span class="card-text-word">2022</span>
+                        <span class="card-text-word">BA Foundation</span>
+                        <span class="card-text-word">FSoft Academy</span>
+                        <span class="card-text-word">2022</span>
+                        <span class="card-text-word">Marketing Management</span>
+                        <span class="card-text-word">Vietnam University of Commerce</span>
+                        <span class="card-text-word">2012-2015</span>
+                    </h4>
+                </div>
+            </div>
+        </nav>
+        <button id="nav-toggle" type="button" onclick="toggleNav()">
+            <i class="open fa-light fa-bars-staggered"></i>
+            <i class="close fa-light fa-xmark-large"></i>
+        </button>
+        <script>
+            const toggleNav = () => {
+                document.body.dataset.nav = document.body.dataset.nav === "true" ? "false" : "true";
+            };
+        </script>
+    </body>
